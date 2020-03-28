@@ -4277,3 +4277,42 @@ body.mobile-nav-active #mobile-nav-toggle {
     border-color: #988fff !important;
     color: #988fff !important
 }
+
+/* My Styles */
+
+.modal-body-left-login {
+    position: relative;
+    width: 50%;
+    left: -4%;
+}
+
+.modal-logo {
+    position: absolute;
+    top: -8%;
+    width: 100%;
+}
+
+.modal-img {
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.modal-txt {
+    color: #C20A15;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.modal-body-right-login {
+    position: relative;
+    right: -3%;
+    height: 100%;
+    width: 50%;
+}
+
+
+
+

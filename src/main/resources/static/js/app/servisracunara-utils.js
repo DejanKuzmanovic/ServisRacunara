@@ -442,4 +442,8 @@ $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
     });
 
+    $('#header-login-button').on('click', function() {
+        $('#login-modal').modal();
+    });
+
 });

@@ -4,7 +4,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Repair</title>
+    <title>Servis Racunara</title>
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/icons/linearicons.css}">
     <link rel="stylesheet" th:href="@{/css/fonts/font-awesome.min.css}">
@@ -13,20 +13,8 @@
     <link rel="stylesheet" th:href="@{/css/common/style.css}">
 </head>
 <body>
-<header id="header">
-    <div class="container main-menu">
-        <div class="row align-items-center justify-content-between d-flex">
-            <div id="logo">
-                <a href="index.html"><img src="/images/logo.png" alt="" title="" /></a>
-            </div>
-            <nav id="nav-menu-container">
-                <ul class="nav-menu">
-                    <li class="menu-active"><a href="index">Home</a></li>
-                </ul>
-            </nav><!-- #nav-menu-container -->
-        </div>
-    </div>
-</header><!-- #header -->
+
+<header th:replace="@{include/header} :: navigation"></header>
 
 <!-- start banner Area -->
 <section class="banner-area" id="home">
@@ -49,46 +37,10 @@
     </div>
 </section>
 <!-- End banner Area -->
-<!-- start footer Area -->
-<footer class="footer-area section-gap">
-    <div class="container">
 
-        <div class="row">
-            <div class="col-lg-3  col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h6>About Agency</h6>
-                    <p>
-                        The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h6>Navigation Links</h6>
-                    <div class="row">
-                        <div class="col">
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Feature</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <ul>
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- End footer Area -->
+<footer th:replace="@{include/footer} :: footer"></footer>
+
+<div th:replace="@{include/modals} :: login-modal"></div>
 
 <script th:src="@{/js/jquery-2.2.4.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
