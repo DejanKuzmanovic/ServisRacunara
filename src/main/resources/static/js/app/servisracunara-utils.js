@@ -446,4 +446,41 @@ $(document).ready(function() {
         $('#login-modal').modal();
     });
 
+    $('#header-registration-button').on('click', function() {
+        $('#registration-modal').modal();
+    });
+
+    $('#register-button').on('click', function () {
+        $('#register-form').trigger('submit');
+    });
+
+    $('#login-button').on('click', function () {
+        $('#login-form').trigger('submit');
+    });
+
+    var calculateOrigin = function () {
+        return window.location.origin + '/page/index';
+    };
+
+    // Login FORM submit handler
+    $('#login-form').on('submit', function (event) {
+        event.preventDefault();
+
+        var formData = new FormData(this);
+
+        $.ajax({
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            data: formData,
+            url: '/page/authenticate',
+            enctype: 'multipart/form-data'
+        }).done(function (a,b,c) {
+            $('#bad-credentials').attr('hidden', 'hidden');
+            window.location.replace(calculateOrigin());
+        }).fail(function (a,b,c) {
+            $('#bad-credentials').removeAttr('hidden');
+        });
+    });
+
 });

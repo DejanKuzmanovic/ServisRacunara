@@ -16,10 +16,20 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="index">Home</a></li>
-                    <li class="menu-active">
+                    <li class="menu-active"><a th:href="@{/page/index}">Home</a></li>
+                    <li class="menu-active" sec:authorize="!isAuthenticated()">
                         <a class="nav-link" href="#" id="header-login-button">
                             Login
+                        </a>
+                    </li>
+                    <li class="menu-active" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" href="#" id="header-registration-button">
+                            Registration
+                        </a>
+                    </li>
+                    <li class="menu-active" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/page/logout}" id="header-logout-button">
+                            Logout
                         </a>
                     </li>
                 </ul>
