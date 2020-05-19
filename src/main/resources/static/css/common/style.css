@@ -2532,7 +2532,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .discount-section-area {
-    background: url(../img/discount-bg.jpg) center;
+    background: url(../../images/discount-bg.jpg) center;
     background-size: cover
 }
 
@@ -4315,6 +4315,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .pd-3 {
     padding: 3%;
+}
+
+.problems-section-area {
+    background: url(../../images/computer.jpg) center;
+    background-size: cover
 }
 
 

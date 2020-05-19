@@ -9,7 +9,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-public class MDAuthenticationProvider extends DaoAuthenticationProvider {
+public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
 
     @Autowired
     private UserRepository userRepository;

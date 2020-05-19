@@ -483,4 +483,9 @@ $(document).ready(function() {
         });
     });
 
+    $('#unauthorized-send-button').on('click', function (event) {
+        event.preventDefault();
+        $('#login-modal').modal('toggle');
+    });
+
 });

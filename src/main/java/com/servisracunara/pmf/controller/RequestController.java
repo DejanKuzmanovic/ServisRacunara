@@ -1,7 +1,7 @@
 package com.servisracunara.pmf.controller;
 
-import com.servisracunara.pmf.dto.UserDTO;
-import com.servisracunara.pmf.service.UserService;
+import com.servisracunara.pmf.dto.RequestDTO;
+import com.servisracunara.pmf.service.RequestService;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +16,20 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("page")
-public class UserController {
+public class RequestController {
 
     private static final String REDIRECT_INDEX_PAGE = "redirect:/page/index";
 
-    private UserService userService;
+    private RequestService requestService;
 
     @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public void setRequestService(RequestService requestService) {
+        this.requestService = requestService;
     }
 
-    @PostMapping(value = "/user/registration")
-    public String registerUserAccount(@ModelAttribute("user") UserDTO user, BindingResult results,
-                                      HttpServletResponse response) throws IOException {
+    @PostMapping(value = "/request/create")
+    public String createRequest(@ModelAttribute("request") RequestDTO requestDTO, BindingResult results,
+                                HttpServletResponse response) throws IOException {
 
         JSONObject messages =
                 results.hasErrors() ? attachErrors(results) : new JSONObject();
@@ -39,7 +39,7 @@ public class UserController {
             return null;
         }
 
-        userService.registerUserAccount(user);
+        requestService.createRequest(requestDTO);
 
         return REDIRECT_INDEX_PAGE;
     }

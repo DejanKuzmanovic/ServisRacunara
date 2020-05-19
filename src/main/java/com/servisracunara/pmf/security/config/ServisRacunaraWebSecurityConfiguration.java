@@ -1,7 +1,7 @@
 package com.servisracunara.pmf.security.config;
 
-import com.servisracunara.pmf.security.auth.MDAuthenticationFailureHandler;
-import com.servisracunara.pmf.security.auth.MDAuthenticationProvider;
+import com.servisracunara.pmf.security.auth.CustomAuthenticationFailureHandler;
+import com.servisracunara.pmf.security.auth.CustomAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +33,7 @@ public class ServisRacunaraWebSecurityConfiguration extends WebSecurityConfigure
 
     @Bean
     public DaoAuthenticationProvider authProvider() {
-        MDAuthenticationProvider authProvider = new MDAuthenticationProvider();
+        CustomAuthenticationProvider authProvider = new CustomAuthenticationProvider();
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
@@ -50,7 +50,7 @@ public class ServisRacunaraWebSecurityConfiguration extends WebSecurityConfigure
         .formLogin()
             .loginPage("/page/index")
             .loginProcessingUrl("/page/authenticate")
-            .failureHandler(new MDAuthenticationFailureHandler())
+            .failureHandler(new CustomAuthenticationFailureHandler())
             .and()
         .logout()
             .logoutUrl("/page/logout")

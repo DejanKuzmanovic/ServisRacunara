@@ -1,8 +1,5 @@
 package com.servisracunara.pmf.model;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 import com.servisracunara.pmf.repository.RoleRepository;
 import com.servisracunara.pmf.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,17 +9,37 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 @Component
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     boolean alreadySetup = false;
 
-    @Autowired
+
     private UserRepository userRepository;
-    @Autowired
+
+
     private RoleRepository roleRepository;
-    @Autowired
+
+
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Autowired
+    public void setRoleRepository(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
+
+    @Autowired
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     @Transactional

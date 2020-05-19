@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Servis Racunara</title>
+    <title>Repair</title>
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/icons/linearicons.css}">
     <link rel="stylesheet" th:href="@{/css/fonts/font-awesome.min.css}">
@@ -16,7 +16,7 @@
 
 <header th:replace="@{include/header} :: navigation"></header>
 
-<!-- start banner Area -->
+<!-- Start banner Area -->
 <section class="banner-area" id="home">
     <div class="container">
         <div class="row fullscreen d-flex align-items-center">
@@ -37,6 +37,102 @@
     </div>
 </section>
 <!-- End banner Area -->
+
+<!-- Start service Area -->
+<section class="service-area section-gap" id="service">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 pb-50 header-text text-center">
+                <h1 class="mb-10">What we Offer to our Supporters</h1>
+                <p>
+                    Who are in extremely love with eco friendly system..
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="single-service">
+                    <div class="thumb">
+                        <img src="/images/o1.jpg" alt="">
+                    </div>
+                    <h4>Popular Uses Of The Internet</h4>
+                    <p>
+                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-service">
+                    <div class="thumb">
+                        <img src="/images/o2.jpg" alt="">
+                    </div>
+                    <h4>Protective Preventative</h4>
+                    <p>
+                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-service">
+                    <div class="thumb">
+                        <img src="/images/o3.jpg" alt="">
+                    </div>
+                    <h4>Download Free Songs</h4>
+                    <p>
+                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-service">
+                    <div class="thumb">
+                        <img src="/images/o4.jpg" alt="">
+                    </div>
+                    <h4>A Discount Toner Cartridge</h4>
+                    <p>
+                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End service Area -->
+
+<!-- Start discount-section Area -->
+<section class="discount-section-area relative section-gap" id="contact">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row align-items-center justify-content-between no-gutters">
+            <div class="col-lg-12 discount-right">
+                <h4 class="text-white">Get a free estimate</h4>
+                <form class="booking-form" id="request-form" th:action="@{/page/request/create}"
+                      th:object="${request}" th:method="post">
+                    <div class="row">
+                        <div class="col-lg-12 d-flex flex-column">
+                            <input name="title" th:field="*{title}" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'" class="form-control mt-20" required="" type="text">
+                        </div>
+                        <div class="col-lg-12 d-flex flex-column">
+                            <input name="phone"  th:field="*{phone}" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" class="form-control mt-20" required="" type="text">
+                        </div>
+                        <div class="col-lg-12 flex-column">
+                            <textarea rows="5" class="form-control mt-20" name="description" th:field="*{description}" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'" required=""></textarea>
+                        </div>
+
+                        <div class="col-lg-12 d-flex justify-content-end send-btn" sec:authorize="isAuthenticated()">
+                            <button type="submit" class="genric-btn primary mt-20 text-uppercase ">Send</button>
+                        </div>
+
+                        <div class="col-lg-12 d-flex justify-content-end send-btn" sec:authorize="!isAuthenticated()">
+                            <button id="unauthorized-send-button" class="genric-btn primary mt-20 text-uppercase">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End discount-section Area -->
 
 <footer th:replace="@{include/footer} :: footer"></footer>
 
