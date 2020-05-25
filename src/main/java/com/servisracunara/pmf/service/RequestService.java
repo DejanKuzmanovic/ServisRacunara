@@ -43,7 +43,7 @@ public class RequestService {
 
     public Request setAdminAnswer(String requestId, String answer) {
         Optional<Request> optionalRequest = requestRepository.findById(Long.parseLong(requestId));
-        if(optionalRequest.isPresent()){
+        if (optionalRequest.isPresent()) {
             Request request = optionalRequest.get();
             request.setAnswer(answer);
             request.setApproved(true);

@@ -18,14 +18,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class ServisRacunaraWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private UserDetailsService userDetailsService;
-
-    @Autowired
-    public void setUserDetailsService(
-            UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -45,6 +37,8 @@ public class ServisRacunaraWebSecurityConfiguration extends WebSecurityConfigure
         .cors().and().csrf().disable()
         .antMatcher("/page/**")
         .authorizeRequests()
+            .antMatchers("/page/admin-console").hasAuthority("ROLE_ADMIN")
+            .antMatchers("/page/requests").authenticated()
             .antMatchers("/page/**").permitAll()
             .and()
         .formLogin()
