@@ -15,7 +15,7 @@ public class MainPageController {
     private static final String MAIN_PAGE_VIEW_NAME = "main-page";
 
     @GetMapping(value = "/index")
-    public ModelAndView loginMessage(@ModelAttribute("user") UserDTO user, @ModelAttribute("request") RequestDTO requestDTO) {
+    public ModelAndView mainPage(@ModelAttribute("user") UserDTO user, @ModelAttribute("request") RequestDTO requestDTO) {
         return new ModelAndView(MAIN_PAGE_VIEW_NAME);
     }
 

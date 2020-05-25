@@ -10,4 +10,6 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
 
     List<Request> getAllByUser(User user);
 
+    List<Request> getAllByApproved(Boolean approved);
+
 }

@@ -442,10 +442,6 @@ $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
     });
 
-    $('#header-login-button').on('click', function() {
-        $('#login-modal').modal();
-    });
-
     $('#header-registration-button').on('click', function() {
         $('#registration-modal').modal();
     });
@@ -475,17 +471,47 @@ $(document).ready(function() {
             data: formData,
             url: '/page/authenticate',
             enctype: 'multipart/form-data'
-        }).done(function (a,b,c) {
+        }).done(function (a, b, c) {
             $('#bad-credentials').attr('hidden', 'hidden');
             window.location.replace(calculateOrigin());
-        }).fail(function (a,b,c) {
+        }).fail(function (a, b, c) {
             $('#bad-credentials').removeAttr('hidden');
         });
     });
 
-    $('#unauthorized-send-button').on('click', function (event) {
-        event.preventDefault();
-        $('#login-modal').modal('toggle');
+    $('#header-login-button').on('click', function(event) {
+        openLoginModal(event);
     });
 
+    $('#unauthorized-send-button').on('click', function (event) {
+        openLoginModal(event);
+    });
+
+    $('#get-started-button').on('click', function (event) {
+        openLoginModal(event);
+    });
+
+    function openLoginModal(event) {
+        event.preventDefault();
+        $('#login-modal').modal('toggle');
+    }
+
 });
+
+function onAnswerAction(element) {
+    var formData = new FormData();
+    formData.append('requestId', element.value);
+    formData.append('answer', $('#answer' + element.value).val());
+
+    $.ajax({
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: formData,
+        url: '/page/request/answer',
+        enctype: 'multipart/form-data'
+    }).done(function (a, b, c) {
+        $("#request-area").load(location.href + " #request-area");
+    }).fail(function (a, b, c) {
+    });
+}

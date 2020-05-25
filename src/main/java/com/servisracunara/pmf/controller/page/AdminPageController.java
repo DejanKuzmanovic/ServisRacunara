@@ -12,9 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("page")
-public class RequestPageController {
+public class AdminPageController {
 
-    private static final String REQUEST_PAGE_VIEW_NAME = "user-requests";
+    private static final String ADMIN_PAGE_VIEW_NAME = "admin-console";
 
     private RequestService requestService;
 
@@ -23,10 +23,10 @@ public class RequestPageController {
         this.requestService = requestService;
     }
 
-    @GetMapping(value = "/requests")
-    public ModelAndView requestPage(@ModelAttribute("user") UserDTO user, @ModelAttribute("request") RequestDTO requestDTO) {
-        ModelAndView model = new ModelAndView(REQUEST_PAGE_VIEW_NAME);
-        model.addObject("requests", requestService.getAllRequests());
+    @GetMapping(value = "/admin-console")
+    public ModelAndView adminPage(@ModelAttribute("user") UserDTO user, @ModelAttribute("requestDTO") RequestDTO requestDTO) {
+        ModelAndView model = new ModelAndView(ADMIN_PAGE_VIEW_NAME);
+        model.addObject("requests", requestService.getAllUnansweredRequests());
         return model;
     }
 

@@ -4322,6 +4322,11 @@ body.mobile-nav-active #mobile-nav-toggle {
     background-size: cover
 }
 
+.admin-section-area {
+    background: url(../../images/admin.jpg) center;
+    background-size: cover
+}
+
 
 
 

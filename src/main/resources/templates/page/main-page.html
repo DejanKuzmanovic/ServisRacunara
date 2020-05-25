@@ -21,14 +21,15 @@
     <div class="container">
         <div class="row fullscreen d-flex align-items-center">
             <div class="banner-content col-lg-7 col-md-6 justify-content-center ">
-                <h6 class="text-uppercase">Don’t look further, This is our Leader</h6>
+                <h6 class="text-uppercase">Don’t look further, we have a solution for you</h6>
                 <h1>
                     All things need to repair
                 </h1>
                 <p class="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.  sed do eiusmod tempor incididunt..
+                    Get a free estimate for your problem right now!
                 </p>
-                <a href="#" class="primary-btn header-btn text-uppercase mt-10">Get Started</a>
+                <a href="#" id="get-started-button" sec:authorize="!isAuthenticated()" class="primary-btn header-btn text-uppercase mt-10">Get Started</a>
+                <a th:href="@{/page/index#contact}" sec:authorize="isAuthenticated()" class="primary-btn header-btn text-uppercase mt-10">Get Started</a>
             </div>
             <div class="banner-img col-lg-5 col-md-6 align-self-end">
                 <img class="img-fluid" src="/images/banner-img.png" alt="">
@@ -44,9 +45,6 @@
         <div class="row justify-content-center">
             <div class="col-md-12 pb-50 header-text text-center">
                 <h1 class="mb-10">What we Offer to our Supporters</h1>
-                <p>
-                    Who are in extremely love with eco friendly system..
-                </p>
             </div>
         </div>
         <div class="row">
@@ -55,9 +53,9 @@
                     <div class="thumb">
                         <img src="/images/o1.jpg" alt="">
                     </div>
-                    <h4>Popular Uses Of The Internet</h4>
+                    <h4>Layered Security</h4>
                     <p>
-                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                        Our managed anti-virus and anti-malware solutions will protect your systems from threats like trojans and ransomware. Together with Unified Threat Management as an additional layer of security, we will keep your systems protected.
                     </p>
                 </div>
             </div>
@@ -66,9 +64,9 @@
                     <div class="thumb">
                         <img src="/images/o2.jpg" alt="">
                     </div>
-                    <h4>Protective Preventative</h4>
+                    <h4>Friendly Tech Support</h4>
                     <p>
-                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                        We understand how important it is to resolve issues quickly and efficiently and minimize any costly down time. With our remote support and on-site support services we can assist and resolve IT issues quickly, and painlessly!
                     </p>
                 </div>
             </div>
@@ -77,9 +75,9 @@
                     <div class="thumb">
                         <img src="/images/o3.jpg" alt="">
                     </div>
-                    <h4>Download Free Songs</h4>
+                    <h4>24/7 Monitoring</h4>
                     <p>
-                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                        Our proactive remote monitoring and maintenance service prevents minor issues before they become big problems. Added layers of security together with automated maintenance and around the clock monitoring boosts productivity, and reduces costly down time caused by malware, updates, slow running computers, computer reboots, and error messages.
                     </p>
                 </div>
             </div>
@@ -88,9 +86,9 @@
                     <div class="thumb">
                         <img src="/images/o4.jpg" alt="">
                     </div>
-                    <h4>A Discount Toner Cartridge</h4>
+                    <h4>Industry Leading Hardware</h4>
                     <p>
-                        inappropriate behavior is oftenlaug hed off as “boys will be boys,” women face higher conduct women face higher conduct.
+                        Trust us to find you the right equipment to do the job, and we will take care of all the set up and data transfer to make new computer systems turn-key. When things stop working, we are right here to assist you. We also offer services such as: upgrades, data recovery, and hardware repairs.
                     </p>
                 </div>
             </div>

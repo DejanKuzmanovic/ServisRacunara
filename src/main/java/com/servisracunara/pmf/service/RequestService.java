@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RequestService {
@@ -40,10 +41,27 @@ public class RequestService {
         return requestRepository.save(request);
     }
 
+    public Request setAdminAnswer(String requestId, String answer) {
+        Optional<Request> optionalRequest = requestRepository.findById(Long.parseLong(requestId));
+        if(optionalRequest.isPresent()){
+            Request request = optionalRequest.get();
+            request.setAnswer(answer);
+            request.setApproved(true);
+            return requestRepository.save(request);
+        }
+
+        return null;
+    }
+
     public List<Request> getAllRequests() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userRepository.findByUsername(((User) principal).getUsername());
         return requestRepository.getAllByUser(currentUser);
     }
 
+    public List<Request> getAllUnansweredRequests() {
+        return requestRepository.getAllByApproved(false);
+    }
+
 }
+;

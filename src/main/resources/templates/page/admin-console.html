@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Admin Console</title>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/icons/linearicons.css}">
+    <link rel="stylesheet" th:href="@{/css/fonts/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/animation/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common/style.css}">
+</head>
+<body>
+
+<header th:replace="@{include/header} :: navigation"></header>
+
+<!-- Start image area -->
+<section class="service-area section-gap admin-section-area" style="height: 44rem;">
+</section>
+<!-- End image area -->
+
+<!-- Start request area -->
+<section id="request-area" class="service-area pb-3 pt-3">
+    <div class="container">
+        <div class="row align-items-center ">
+            <div th:each="request : ${requests}" th:remove="tag"
+                 th:object="${request}">
+                <div class="row w-100">
+                    <div class="col-lg-6">
+                        <p class="col-lg-12 pt-3">User question:</p>
+                        <div class="col-lg-12 flex-column">
+                            <input readonly id="title" name="title" th:value="${request.title}"
+                                   class="form-control mt-20" required="" type="text">
+                        </div>
+                        <div class="col-lg-12 d-flex flex-column">
+                            <input readonly id="phone" name="phone" th:value="${request.phone}"
+                                   class="form-control mt-20" required="" type="text">
+                        </div>
+                        <div class="col-lg-12 flex-column">
+                        <span readonly rows="5" class="form-control mt-20" th:value="${request.description}"
+                              style="height: 7rem" id="description" name="description"
+                              th:utext="${request.description}"
+                              required=""></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="col-lg-12 pt-3">Your answer:</p>
+                        <div class="col-lg-12" style="height: 79%;">
+                        <textarea rows="5" class="form-control mt-20" th:id="'answer' + ${request.id}" name="answer"
+                                  style="height: 10.6rem; margin-bottom: 3%;" required=""></textarea>
+                            <button class="genric-btn primary" style="margin-left: 81%;" onclick="onAnswerAction(this)" th:value="${request.id}">Answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End request area -->
+
+<footer th:replace="@{include/footer} :: footer"></footer>
+
+<div th:replace="@{include/modals} :: login-modal"></div>
+<div th:replace="@{include/modals} :: registration-modal"></div>
+
+<script th:src="@{/js/jquery-2.2.4.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/superfish.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+<script th:src="@{/js/app/servisracunara-utils.js}"></script>
+</body>
+</html>

@@ -44,6 +44,23 @@ public class RequestController {
         return REDIRECT_INDEX_PAGE;
     }
 
+    @PostMapping(value = "/request/answer")
+    public String setAdminAnswer(@ModelAttribute("requestId") String requestId, @ModelAttribute("answer") String answer, BindingResult results,
+                                HttpServletResponse response) throws IOException {
+
+        JSONObject messages =
+                results.hasErrors() ? attachErrors(results) : new JSONObject();
+
+        if (messages.length() != 0) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, messages.toString());
+            return null;
+        }
+
+        requestService.setAdminAnswer(requestId, answer);
+
+        return REDIRECT_INDEX_PAGE;
+    }
+
     private JSONObject attachErrors(BindingResult results) {
         JSONObject messages = new JSONObject();
         JSONArray array = new JSONArray();
